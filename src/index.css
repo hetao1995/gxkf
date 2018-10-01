@@ -1,0 +1,80 @@
+@font-face {
+    /* font-properties */
+    font-family: DIGIT;
+    src:url('./assets/DS-DIGIT.TTF');
+}
+body{
+  background: url("./assets/bg.png");
+
+background-size: 100%;
+}
+html, body, :global(#root) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color:white;
+  overflow-x: hidden;
+}
+:global(.scrollbar){
+  height: 360px;
+  overflow-y: scroll;
+}
+:global(.scrollbar::-webkit-scrollbar){
+  width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+:global(.scrollbar::-webkit-scrollbar-thumb){
+  border-radius: 10px;
+   -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  background: #535353;
+  opacity: 0.7;
+  background: #22A5F7;
+  border-radius: 8px;
+}
+:global(.scrollbar::-webkit-scrollbar-track){
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background: rgba(0,0,0,0);
+}
+
+
+
+:global(.container){
+  max-width: 1860px;
+margin: 20px auto;
+}
+:global(div){
+      box-sizing: border-box;
+}
+:global(ul li){
+  list-style: none;
+}
+:global(ul){
+  margin: 0;
+  padding: 0;
+}
+:global(ol){
+  margin: 0;
+  padding: 0;
+}
+
+:global(.boxShadow){
+
+  background: rgba(13,26,65,0.30);
+  border: 1px solid #22a5f7 ;
+  box-shadow: inset 0 0 20px 0 rgba(34,165,247,0.30);
+  border-radius: 2px;
+}
+:global(.nd){
+  opacity: 0.7;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}
+:global(.n){
+font-family:DIGIT;
+font-size: 34px;
+color: #FFFFFF;
+letter-spacing: 0;
+}
