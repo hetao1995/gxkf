@@ -7,7 +7,6 @@
     <list default="true" id="dd0e26a5-a3eb-4a4d-9bd4-5bffaf6996c3" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/component/EventEmitter/EventEmitter.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.webpackrc" afterPath="$PROJECT_DIR$/.webpackrc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/DashBord.js" afterPath="$PROJECT_DIR$/src/routes/DashBord.js" />
     </list>
@@ -532,7 +531,13 @@
       <option name="project" value="LOCAL" />
       <updated>1538394005537</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="跨域">
+      <created>1538394033877</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1538394033877</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -572,9 +577,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改了一些样式" />
-    <MESSAGE value="跨域" />
     <MESSAGE value="bct请求" />
-    <option name="LAST_COMMIT_MESSAGE" value="bct请求" />
+    <MESSAGE value="跨域" />
+    <option name="LAST_COMMIT_MESSAGE" value="跨域" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

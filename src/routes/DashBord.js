@@ -144,6 +144,12 @@ class DashBord extends React.Component {
   // })
 
  }
+  componentWillMount() {
+    this.props.dispatch({
+      type: 'bct/getDetails',
+  })
+  }
+
   render(){
 
         const DataSourceSpeacil={
@@ -357,7 +363,7 @@ class DashBord extends React.Component {
                       <div className={styles.l3} style={{margin:"0 0 0 15px"}}>
                         <img alt="" src={require("../assets/images/btc_orange.svg")}  />
                         <div style={{marginLeft:"0", textAlign: 'left'}}>
-                          <div style={{fontFamily: "DIGIT",fontSize:"43px"}}><AnimateComponent value={379792}/></div>
+                          <div style={{fontFamily: "DIGIT",fontSize:"43px"}}><AnimateComponent value={this.props.bct.bctHeight}/></div>
                           <div style={{marginTop:"-10px",marginLeft:"0"}}>区块链高度</div>
                         </div>
                       </div>
@@ -533,7 +539,7 @@ class DashBord extends React.Component {
                                     {this.getPercentComputed().map((val,index)=>{
                                       return    <li key={index}>
                                                       <div>
-                                                        <Progress strokeWidth="12"  strokeColor={{color:"#38BDD8"}} className={styles.dirProgress} strokeColor="#47D1FC" type="circle" percent={val.data} />
+                                                        <Progress strokeWidth={12}  strokeColor={{color:"#38BDD8"}} className={styles.dirProgress} strokeColor="#47D1FC" type="circle" percent={val.data} />
                                                       </div>
                                                       <div className={`nd`} style={{marginTop: "10px"}}> {val.tag}</div>
                                                  </li>
@@ -562,7 +568,8 @@ class DashBord extends React.Component {
 //   return state
 // }
 
-export default connect(({ App,totalMoney }) => ({
+export default connect(({ App,totalMoney, bct }) => ({
   DashBord:App,
   totalMoney,
+  bct,
 }))(DashBord);

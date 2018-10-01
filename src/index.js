@@ -12,7 +12,7 @@ const app = dva();
 app.use(createLoading());
 // 3. Model
 
-const models=[require('./models/App').default,require('./models/totalMoney').default];
+const models=[require('./models/App').default,require('./models/totalMoney').default,require('./models/bct').default];
 models.forEach(m=>app.model(m))
 // 4. Router
 app.router(require('./router').default);
