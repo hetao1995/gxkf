@@ -58,7 +58,7 @@ componentDidMount(){
         </div>
           <span className={styles.userState} style={{width:"190px"}}>
             <div className={styles.bg}><span> <AnimateComponent value={876}/></span></div>
-            <span className={styles.Line}></span>
+
           </span>
           <span className={styles.userRight}>
             <span>双创中心</span>

@@ -8,7 +8,7 @@ import styles from "./zxt.less";
 
 export default class TablesChart extends  React.Component{
   componentDidMount(){
-    var data = [["09-24",116],["09-25",129],["09-26",135],["09-27",86],["09-28",73],["09-29",85],["09-30",73]];
+    var data = [["09-24",1],["09-25",3],["09-26",2],["09-27",3],["09-28",2],["09-29",2],["09-30",1]];
 
     var dateList = data.map(function (item) {
       return item[0];
@@ -44,7 +44,7 @@ export default class TablesChart extends  React.Component{
       }],
       grid: {
         bottom: '10%',
-        top:'2%',
+        top:'15%',
         left:'1%',
         right:'1%'
       },

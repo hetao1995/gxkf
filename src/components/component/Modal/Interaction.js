@@ -87,7 +87,7 @@ class Interaction extends React.Component {
         >
           <div style={{textAlign: "center"}}>
             <div><img alt="" src={require('../../../assets/images/p1.svg')}/></div>
-            <div style={{color:"#00FEFB"}}><AnimateComponent value={this.state.money} duration={20000}/></div>
+            <div style={{color:"#00FEFB"}}><AnimateComponent value={this.state.money} duration={5000}/></div>
             <div>创新信用券奖金池</div>
           </div>
         </Modal>

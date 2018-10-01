@@ -2,13 +2,33 @@ import React  from 'react';
 import echarts from 'echarts';
 import styles from './TablesChart.less';
 let TableDatas={
-  name:['成都高新科服','成都研究院','联通大数据','成都唯品科技','成都未来之门'],
-  data:[900, 470, 760, 850, 349],
+  name:[ '联合信用征信','精为企业管理','联合网络通信','北京直真科技','四川环泰'],
+  data:[195000, 3600, 24000, 1000, 499],
   dub:[1,2,3,1,1]
 }
-let normalcolor='#000' ;
-let dubcolor="#ccc";
-let warncolor="#FFF";
+let totalDatas={
+  name:[
+    '联合信用征信','精为企业管理','联合网络通信','北京直真科技','四川环泰',
+    '成都天象','技术转移中心','成都维品科技','四川汇海立方','成都泰聚泰',
+    '痛客企业服务','琴台律师事务所','博远堂广告','成都实唯物联网','高扬律师事务所',
+    '川悦文化传媒'
+  ],
+  data:[
+    195000, 3600, 24000, 1000, 499,
+    888, 15000, 25000, 4000, 100000,
+    30000, 35000, 50000, 100000, 5000,
+    5000
+  ],
+  dub:[
+    1,2,3,1,1,
+    1,2,1,1,1,
+    1,2,1,1,1,
+    3
+  ]
+}
+let normalcolor='#39bff6' ;
+let dubcolor="#ffa001";
+let warncolor="#fb0001";
 function cal(){
   var res = [];
   for(let i=0; i<TableDatas.data.length; i++){
@@ -33,8 +53,8 @@ const option = {
     },
 
     grid: {
-        left: '3%',
-        right: '4%',
+        left: '2%',
+        right: '15%',
         bottom: '3%',
         containLabel: true
     },
@@ -107,26 +127,28 @@ export default class TablesChart extends  React.Component{
   componentDidMount(){
     var myChart = echarts.init(document.getElementById('tables'));
     myChart.setOption(option)
-      let counter=100;
+      let counter=5;
 
-    // setInterval(function(){
-    //   TableDatas.name.splice(0,1);
-    //   TableDatas.data.splice(0,1);
-    //   ++counter;
-    //
-    //   TableDatas.data.push(counter)
-    //   TableDatas.name.push(counter)
-    //
-    //         myChart.setOption({
-    //             yAxis:{
-    //                 data:TableDatas.name
-    //             },
-    //             series:[{
-    //                 name:'成交',
-    //                 data:TableDatas.data
-    //             }]
-    //         });
-    //     },3000)
+     setInterval(function(){
+       TableDatas.name.shift();
+       TableDatas.data.shift();
+       TableDatas.dub.shift();
+       ++counter;
+       counter = (counter+totalDatas.data.length)%totalDatas.data.length;
+       TableDatas.data.push(totalDatas.data[counter])
+       TableDatas.name.push(totalDatas.name[counter])
+       TableDatas.dub.push(totalDatas.dub[counter])
+
+             myChart.setOption({
+                 yAxis:{
+                     data:TableDatas.name
+                 },
+                 series:[{
+                     name:'成交',
+                     data:cal()
+                 }]
+             });
+         },3000)
 
   }
   render(){

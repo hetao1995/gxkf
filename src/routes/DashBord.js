@@ -109,15 +109,15 @@ class DashBord extends React.Component {
   getPercentComputed(){
     const data=[
         {
-          data:30,
+          data:23,
           tag:"活跃会员"
         },
         {
-          data:63,
+          data:56.8,
           tag:"企业会员"
         },
         {
-          data:7,
+          data:17.4,
           tag:"个人会员"
         }
       ]
@@ -126,8 +126,8 @@ class DashBord extends React.Component {
 
   getStarInfo(){
     const data=[
-        [75,140,142,98,44,12],
-        [13,62,84,28,7,6]
+        [207,1,101,168,19,2],
+        [87,5,96,18,4,2]
       ]
       return data
   }
@@ -333,9 +333,9 @@ class DashBord extends React.Component {
                                 <span>最新交易用户</span>
                                 <span>单笔交易量</span>
 
-                                <div style={{width:'20px', height:'20px', backgroundColor:"#000", marginLeft:'20px'}}></div> 正常
-                                <div style={{width:'20px', height:'20px', backgroundColor:"#ccc",  marginLeft:'10px'}}></div> 可疑
-                                <div style={{width:'20px', height:'20px', backgroundColor:"#fff",  marginLeft:'10px'}}></div> 告警
+                                <div style={{width:'13px', height:'13px', backgroundColor:"#39bff6", marginLeft:'50px', marginTop:'5px'}}></div> <span style={{fontSize:"15px", marginLeft:"5px"}}>正常</span>
+                                <div style={{width:'13px', height:'13px', backgroundColor:"#ffa001 ",  marginLeft:'10px', marginTop:'5px'}}></div>  <span style={{fontSize:"15px", marginLeft:"5px"}}>可疑</span>
+                                <div style={{width:'13px', height:'13px', backgroundColor:"#fb0001 ",  marginLeft:'10px', marginTop:'5px'}}></div>  <span style={{fontSize:"15px", marginLeft:"5px"}}>告警</span>
 
 
                               </div></li>
@@ -357,7 +357,7 @@ class DashBord extends React.Component {
                       <div className={styles.l3} style={{margin:"0 0 0 15px"}}>
                         <img alt="" src={require("../assets/images/btc_orange.svg")}  />
                         <div style={{marginLeft:"0", textAlign: 'left'}}>
-                          <div style={{fontFamily: "DIGIT",fontSize:"43px"}}><AnimateComponent value={360000}/></div>
+                          <div style={{fontFamily: "DIGIT",fontSize:"43px"}}><AnimateComponent value={379792}/></div>
                           <div style={{marginTop:"-10px",marginLeft:"0"}}>区块链高度</div>
                         </div>
                       </div>
@@ -385,27 +385,27 @@ class DashBord extends React.Component {
                         <ul style={{margin:0}}>
                             <li>
                                 <div><img alt="" src={require('../assets/images/p1.svg')}/></div>
-                                <div style={{color:"#00FEFB"}}>{this.props.totalMoney}<span > 万</span></div>
+                                <div style={{color:"#00FEFB"}}>{this.props.totalMoney}<span style={{fontSize:"15px"}}> 万</span></div>
                                 <div>创新信用券</div>
-                                <div>奖金池</div>
+                                <div>资金额</div>
                             </li>
                             <li>
                                 <div><img alt="" src={require('../assets/images/p2.svg')}/></div>
                                 <div style={{color:"#FF8E00"}}><AnimateComponent value={669}/></div>
                                 <div>创新信用券</div>
-                                <div>发放量</div>
+                                <div>发放数量</div>
                             </li>
                             <li>
                                 <div><img alt="" src={require('../assets/images/p3.svg')}/></div>
                                 <div style={{color:"#FDF40D"}}><AnimateComponent value={629}/></div>
                                 <div>创新信用券</div>
-                                <div>使用量</div>
+                                <div>使用数量</div>
                             </li>
                             <li>
                                 <div><img alt="" src={require('../assets/images/p4.svg')}/></div>
                                 <div style={{color:"#8DFF00"}}><AnimateComponent value={629}/></div>
                                 <div>创新信用券</div>
-                                <div>兑换量</div>
+                                <div>兑现数量</div>
                             </li>
                         </ul>
                       </div>
@@ -414,7 +414,7 @@ class DashBord extends React.Component {
                         <div style={{padding:"0 0 10px 5px"}}>创新信用券服务商</div>
                         <ul>
                             <li>
-                                <div><AnimateComponent value={50}/></div>
+                                <div><AnimateComponent value={3}/></div>
                                 <div>
                                   <img alt="" src={star}/>
                                 </div>
@@ -426,19 +426,19 @@ class DashBord extends React.Component {
                                 </div>
                             </li>
                             <li>
-                                <div><AnimateComponent value={83}/></div>
+                                <div><AnimateComponent value={16}/></div>
                                 <div>
                                   <img alt="" src={star}/> <img alt="" src={star}/> <img alt="" src={star}/>
                                 </div>
                             </li>
                             <li>
-                                <div><AnimateComponent value={12}/></div>
+                                <div><AnimateComponent value={4}/></div>
                                 <div>
                                   <img alt="" src={star}/><img alt="" src={star}/><img alt="" src={star}/><img alt="" src={star}/>
                                 </div>
                             </li>
                             <li>
-                                <div><AnimateComponent value={7}/></div>
+                                <div><AnimateComponent value={2}/></div>
                                 <div>
                                   <img alt="" src={star}/><img alt="" src={star}/><img alt="" src={star}/><img alt="" src={star}/><img alt="" src={star}/>
                                 </div>
