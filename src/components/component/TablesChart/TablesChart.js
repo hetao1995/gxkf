@@ -4,7 +4,7 @@ import styles from './TablesChart.less';
 let TableDatas={
   name:[ '联合信用征信','精为企业管理','联合网络通信','北京直真科技','四川环泰'],
   data:[195000, 3600, 24000, 1000, 499],
-  dub:[1,2,3,1,1]
+  dub:[1,1,1,1,1]
 }
 let totalDatas={
   name:[
@@ -20,10 +20,10 @@ let totalDatas={
     5000
   ],
   dub:[
-    1,2,3,1,1,
-    1,2,1,1,1,
-    1,2,1,1,1,
-    3
+    1,1,1,1,1,
+    1,1,1,1,1,
+    1,1,1,1,1,
+    1
   ]
 }
 let normalcolor='#39bff6' ;
