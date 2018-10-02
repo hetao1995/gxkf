@@ -309,6 +309,7 @@ class DashBord extends React.Component {
                                               <span><img alt="" style={{width:"20px"}} src={require('../assets/images/l2.svg')}/></span>
                                               {index==0? <span>服务次数</span> : <span>交易金额</span>}
                                               <span className={styles.Number}><AnimateComponent value={val.left.datas[1]}/></span>
+                                              {index==0?<span></span>:<span style={{fontSize:'10px', paddingTop:'10px'}}>元</span>}
                                             </div>
 
                                         </div>
@@ -323,7 +324,7 @@ class DashBord extends React.Component {
                                             <span><img alt="" style={{width:"20px"}} src={require('../assets/images/l2.svg')}/></span>
                                             <span>交易金额</span>
                                             <span className={styles.Number}> <AnimateComponent value={val.right.datas[1]}/></span>
-                                            {val.right.datas[1]==488.8?<span>&nbsp;亿</span>:<span></span>}
+                                            {index==3?<span style={{fontSize:'10px', paddingTop:'10px'}}>亿</span>:<span style={{fontSize:'10px', paddingTop:'10px'}}>元</span>}
                                           </div>
                                         </div>
                                     </div>
