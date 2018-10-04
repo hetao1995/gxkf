@@ -33,7 +33,7 @@ export default {
       console.log(data);
       return {
         ...state,
-        bctHeight: parseInt(data["data"]["seq"]),
+        bctHeight: data,
       };
     },
   },
