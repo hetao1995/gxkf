@@ -136,7 +136,7 @@ class DashBord extends React.Component {
 
  }
   componentWillMount() {
-    const ws = new WebSocket('ws://localhost:8080/bct');
+    const ws = new WebSocket('ws://localhost:8087/bct');
     var env = this;
     ws.onopen = function (e) {
       console.log('连接上 ws 服务端了');
@@ -156,7 +156,7 @@ class DashBord extends React.Component {
     }
 
 
-    const ws1 = new WebSocket('ws://localhost:8080/credit');
+    const ws1 = new WebSocket('ws://localhost:8087/credit');
     ws1.onopen = function (e) {
       console.log('连接上credit 服务端了');
       //ws.send(JSON.stringify({ flag: flag, data: currentItem }));
