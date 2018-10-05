@@ -92,18 +92,7 @@ class DashBord extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      LO:{
-        Left:{
-          color:"#22A5F7 ",
-          data:26502,
-          text:"区块链节点数量"
-        },
-        Right:{
-          color:"#8A77ED",
-          data:"26,500",
-          text:"区块链高度"
-        }
-      }
+
     }
   }
   getPercentComputed(){
@@ -143,11 +132,50 @@ class DashBord extends React.Component {
   //   console.log(this.props)
   // })
 
+
+
  }
   componentWillMount() {
-    this.props.dispatch({
-      type: 'bct/getDetails',
-  })
+    const ws = new WebSocket('ws://localhost:8080/bct');
+    var env = this;
+    ws.onopen = function (e) {
+      console.log('连接上 ws 服务端了');
+      //ws.send(JSON.stringify({ flag: flag, data: currentItem }));
+    }
+    ws.onmessage = function(msg) {
+      console.log('接收服务端发过来的消息: %o', msg);
+      env.props.dispatch({
+        type: 'bct/save',
+        payload:{data:parseInt(msg.data)}
+      })
+      //result += msg.data + '\n';
+      //that.setState({ result: result });
+    };
+    ws.onclose = function (e) {
+      console.log('ws 连接关闭了');
+    }
+
+
+    const ws1 = new WebSocket('ws://localhost:8080/credit');
+    ws1.onopen = function (e) {
+      console.log('连接上credit 服务端了');
+      //ws.send(JSON.stringify({ flag: flag, data: currentItem }));
+    }
+    ws1.onmessage = function(msg) {
+      console.log('接收服务端发过来的消息: %o', msg);
+      let data = JSON.parse(msg.data);
+      console.log(data);
+      env.props.dispatch({
+        type: 'credit/refresh',
+        payload:data
+      })
+      //result += msg.data + '\n';
+      //that.setState({ result: result });
+    };
+    ws1.onclose = function (e) {
+      console.log('ws 连接关闭了');
+    }
+
   }
 
   render(){
@@ -253,7 +281,7 @@ class DashBord extends React.Component {
             },
             right:{
               r1:"基础服务",
-              datas:[190,6800000]
+              datas:[190,680000]
             }
           },
           {
@@ -309,7 +337,7 @@ class DashBord extends React.Component {
                                               <span><img alt="" style={{width:"20px"}} src={require('../assets/images/l2.svg')}/></span>
                                               {index==0? <span>服务次数</span> : <span>交易金额</span>}
                                               <span className={styles.Number}><AnimateComponent value={val.left.datas[1]}/></span>
-                                              {index==0?<span></span>:<span style={{fontSize:'10px', paddingTop:'10px'}}>元</span>}
+                                              {index==0?<span></span>:<span style={{fontSize:'10px', paddingTop:'10px', paddingLeft:'3px'}}>元</span>}
                                             </div>
 
                                         </div>
@@ -324,7 +352,7 @@ class DashBord extends React.Component {
                                             <span><img alt="" style={{width:"20px"}} src={require('../assets/images/l2.svg')}/></span>
                                             <span>交易金额</span>
                                             <span className={styles.Number}> <AnimateComponent value={val.right.datas[1]}/></span>
-                                            {index==3?<span style={{fontSize:'10px', paddingTop:'10px'}}>亿</span>:<span style={{fontSize:'10px', paddingTop:'10px'}}>元</span>}
+                                            {index==3?<span style={{fontSize:'10px', paddingTop:'10px',paddingLeft:'3px'}}>亿</span>:<span style={{fontSize:'10px', paddingTop:'10px',paddingLeft:'3px'}}>元</span>}
                                           </div>
                                         </div>
                                     </div>
@@ -398,19 +426,19 @@ class DashBord extends React.Component {
                             </li>
                             <li>
                                 <div><img alt="" src={require('../assets/images/p2.svg')}/></div>
-                                <div style={{color:"#FF8E00"}}><AnimateComponent value={669}/></div>
+                                <div style={{color:"#FF8E00"}}><AnimateComponent value={this.props.credit.amount}/></div>
                                 <div>创新信用券</div>
                                 <div>发放数量</div>
                             </li>
                             <li>
                                 <div><img alt="" src={require('../assets/images/p3.svg')}/></div>
-                                <div style={{color:"#FDF40D"}}><AnimateComponent value={629}/></div>
+                                <div style={{color:"#FDF40D"}}><AnimateComponent value={this.props.credit.used}/></div>
                                 <div>创新信用券</div>
                                 <div>使用数量</div>
                             </li>
                             <li>
                                 <div><img alt="" src={require('../assets/images/p4.svg')}/></div>
-                                <div style={{color:"#8DFF00"}}><AnimateComponent value={629}/></div>
+                                <div style={{color:"#8DFF00"}}><AnimateComponent value={this.props.credit.cashed}/></div>
                                 <div>创新信用券</div>
                                 <div>兑现数量</div>
                             </li>
@@ -469,7 +497,7 @@ class DashBord extends React.Component {
                               {
                                 this.getStarInfo()[0].map((val,index)=>{
                                   return <div key={index} style={{padding:"4.5px 0"}}>
-                                              <span style={{fontSize:"14px"}}>(个)</span>
+                                              <span style={{fontSize:"14px"}}></span>
                                          </div>
                                 })
                               }
@@ -478,7 +506,7 @@ class DashBord extends React.Component {
                               {
                                 this.getStarInfo()[0].map((val,index)=>{
                                   return <div key={index} style={{padding:"4.5px 2px"}}>
-                                              <Star value={index} total={5} StarStyle={{width:"20px",color:"#00EAFF", marginRight:"5px",marginLeft:"4px", marginTop:"-6px"}}/>
+                                              <Star value={index} total={5} StarStyle={{width:"20px",color:"#00EAFF", marginRight:"10px",marginLeft:"4px", marginTop:"-6px"}}/>
                                          </div>
                                 })
                               }
@@ -501,7 +529,7 @@ class DashBord extends React.Component {
                               {
                                 this.getStarInfo()[1].map((val,index)=>{
                                   return <div key={index} style={{padding:"4.5px 0"}}>
-                                              <span style={{fontSize:"14px"}}>(个)</span>
+                                              <span style={{fontSize:"14px"}}></span>
                                          </div>
                                 })
                               }
@@ -510,7 +538,7 @@ class DashBord extends React.Component {
                               {
                                 this.getStarInfo()[1].map((val,index)=>{
                                   return <div key={index} style={{padding:"4.5px 2px"}}>
-                                              <Star value={index} total={5} StarStyle={{width:"20px",color:"#00EAFF", marginRight:"5px",marginLeft:"4px", marginTop:"-6px"}}/>
+                                              <Star value={index} total={5} StarStyle={{width:"20px",color:"#00EAFF", marginRight:"10px",marginLeft:"4px", marginTop:"-6px"}}/>
                                          </div>
                                 })
                               }
@@ -569,8 +597,9 @@ class DashBord extends React.Component {
 //   return state
 // }
 
-export default connect(({ App,totalMoney, bct }) => ({
+export default connect(({ App,totalMoney, bct, credit }) => ({
   DashBord:App,
   totalMoney,
   bct,
+  credit,
 }))(DashBord);

@@ -42,7 +42,7 @@ componentDidMount(){
     return (
     <div>
     <div className={styles.tab}>
-        <span style={{color:"white"}}><img alt="" style={{height:"80%", padding:"0 0 5px 0"}} src={require("../assets/images/logo.svg")}/></span>
+        <span style={{color:"white"}}><img alt="" style={{height:"70%", padding:"0 0 5px 0"}} src={require("../assets/images/logo.svg")}/></span>
         <div  className={styles.bar}>
               <ul>
               {PathLists.map((val)=>{

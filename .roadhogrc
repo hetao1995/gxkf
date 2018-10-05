@@ -22,7 +22,8 @@
   "proxy": {
     "/bct/api": {
       "target": "http://47.92.0.107/bct/transaction/",
-      "changeOrigin": true
+      "changeOrigin": true，
+      "pathRewrite": { "^/btc/api" : "" }
     }
   }
 }
